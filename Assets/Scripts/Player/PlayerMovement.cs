@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	void Rotating (float horizontal)
 	{
-		transform.Rotate (new Vector3 (0, horizontal * Time.deltaTime * turnSmoothing, 0));
+		//transform.Rotate (new Vector3 (0, horizontal * Time.deltaTime * turnSmoothing, 0));
 	}
 	
 }
