@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  turnSmoothing: 15
+  turnSmoothing: 60
 --- !u!1 &206502438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 3713bb692fd254bc190fef0e776a147c, type: 2}
       propertyPath: turnSmoothing
-      value: 15
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 3713bb692fd254bc190fef0e776a147c, type: 2}
       propertyPath: speedDampTime
