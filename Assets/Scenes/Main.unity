@@ -535,7 +535,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: d858df74f7c0f4b86b1d719c002c86df, type: 3}
   m_Controller: {fileID: 9100000, guid: d6350454d0e264fe7b4ceef2af76bec1, type: 2}
   m_CullingMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
 --- !u!136 &190419774
 CapsuleCollider:
@@ -579,7 +579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5d909c030cf4571989723d7dce6638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSmoothing: 15
+  speed: 4
+  turnSmoothing: 60
 --- !u!1 &206502438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,7 +2296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 3713bb692fd254bc190fef0e776a147c, type: 2}
       propertyPath: turnSmoothing
-      value: 15
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 3713bb692fd254bc190fef0e776a147c, type: 2}
       propertyPath: speedDampTime
@@ -2305,6 +2306,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d6350454d0e264fe7b4ceef2af76bec1, type: 2}
+    - target: {fileID: 9500000, guid: 3713bb692fd254bc190fef0e776a147c, type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3713bb692fd254bc190fef0e776a147c, type: 2}
   m_RootGameObject: {fileID: 190419771}

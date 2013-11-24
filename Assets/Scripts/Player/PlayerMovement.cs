@@ -3,39 +3,52 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+	public float speed = 4.0f;
 	public float turnSmoothing = 90.0f;
 
 	private Animator anim;
 	private HashIDs hash;
 	
-	void Awake ()
+	void Awake()
 	{
 		anim = GetComponent<Animator> ();
 		hash = GameObject.FindGameObjectWithTag (Tags.gameController).GetComponent<HashIDs> ();
 	}
 	
-	void FixedUpdate ()
+	void FixedUpdate()
 	{
-		float h = Input.GetAxis ("Horizontal");
-		float v = Input.GetAxis ("Vertical");
-		bool r = Input.GetKey (KeyCode.LeftShift);
+		float horizontal = Input.GetAxis("Horizontal");
+		float vertical = Input.GetAxis("Vertical");
+		bool running = Input.GetKey(KeyCode.LeftShift);
 
-		MovementManagement (v, h, r);
+		MovementManagement(vertical, horizontal, running);
 	}
 	
-	void MovementManagement (float vertical, float horizontal, bool run)
+	void OnAnimatorMove()
 	{
-		if (horizontal != 0f || vertical != 0f) {
-			Rotating (horizontal);
-			anim.SetFloat (hash.speedFloat, vertical);
-			anim.SetFloat (hash.directionFloat, horizontal);
-			anim.SetBool (hash.runBool, run);
+		bool running = anim.GetBool(hash.runBool);
+		float horizontal = anim.GetFloat(hash.directionFloat);
+		float vertical = anim.GetFloat(hash.speedFloat);
+		
+		if (running && vertical > 0) {
+			speed = 6.0f;
+			Rotate(horizontal);
 		} else {
-			anim.SetFloat (hash.speedFloat, 0f);
+			speed = 4.0f;
+			transform.position += transform.right * speed * horizontal * Time.deltaTime;
 		}
+		
+		transform.position += transform.forward * speed * vertical * Time.deltaTime;
 	}
 	
-	void Rotating (float horizontal)
+	void MovementManagement(float vertical, float horizontal, bool running)
+	{
+			anim.SetFloat(hash.speedFloat, vertical);
+			anim.SetFloat(hash.directionFloat, horizontal);
+			anim.SetBool(hash.runBool, running);
+	}
+	
+	void Rotate (float horizontal)
 	{
 		transform.Rotate (new Vector3 (0, horizontal * Time.deltaTime * turnSmoothing, 0));
 	}
