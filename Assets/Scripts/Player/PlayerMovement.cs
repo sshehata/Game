@@ -29,15 +29,13 @@ public class PlayerMovement : MonoBehaviour
 		bool running = anim.GetBool(hash.runBool);
 		float horizontal = anim.GetFloat(hash.directionFloat);
 		float vertical = anim.GetFloat(hash.speedFloat);
-		Vector3 position = transform.localPosition;
 		
-		if (running) {
+		if (running && vertical > 0) {
 			speed = 6.0f;
-			if (vertical != 0)
-				Rotate(horizontal);
+			Rotate(horizontal);
 		} else {
 			speed = 4.0f;
-			position.x += speed * horizontal * Time.deltaTime;
+			transform.position += transform.right * speed * horizontal * Time.deltaTime;
 		}
 		
 		transform.position += transform.forward * speed * vertical * Time.deltaTime;
