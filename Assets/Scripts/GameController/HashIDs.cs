@@ -12,7 +12,7 @@ public class HashIDs : MonoBehaviour
 	// Controller Parameters
 	public int speedFloat;
 	public int directionFloat;
-	public int runBool;
+	public int angularSpeedFloat;
 
 	void Awake ()
 	{
@@ -23,7 +23,7 @@ public class HashIDs : MonoBehaviour
 
 		speedFloat = Animator.StringToHash ("Speed");
 		directionFloat = Animator.StringToHash ("Direction");
-		runBool = Animator.StringToHash ("Run");
+		angularSpeedFloat = Animator.StringToHash ("AngularSpeed");
 	}
 	
 }
